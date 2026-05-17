@@ -19,6 +19,8 @@ export const metadata: Metadata = {
 };
 
 export default function TurmaDoManguePage() {
+  const publicPortals = Object.values(entryPortals).filter((portal) => portal.slug !== "implementacao");
+
   return (
     <div className="py-12">
       <section className="border-b border-mar-areia/30 bg-gradient-to-b from-mar-creme/80 to-white pb-16 pt-12">
@@ -103,14 +105,14 @@ export default function TurmaDoManguePage() {
         <div className="container-site">
           <div className="section-eyebrow text-mar-cobre">
             <Compass className="h-4 w-4" />
-            <span>Tres portais de entrada</span>
+            <span>Quatro caminhos de entrada</span>
           </div>
           <h2 className="font-serif text-3xl font-bold text-mar-azul">Voz da turma por portal</h2>
           <p className="mt-2 max-w-2xl text-mar-escuro/72">
             Escolha o percurso que combina com voce. Cada portal tem tom, convite e tres passos claros.
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {Object.values(entryPortals).map((portal) => {
+            {publicPortals.map((portal) => {
               const narrative = storyPortalNarrative[portal.slug];
               return (
                 <article key={portal.slug} className="rounded-2xl border border-mar-areia/40 bg-white p-5 shadow-sm">

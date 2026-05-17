@@ -10,7 +10,7 @@ import {
   syncParticipantProfile,
 } from "@/lib/participant-profile";
 import { getEntryPortal } from "@/lib/entry-portals";
-import { CharacterRoster } from "@/components/story/CharacterRoster";
+import { CharacterRoster, type StoryTone } from "@/components/story/CharacterRoster";
 import { Anchor, ArrowRight, CheckCircle2, Compass, Sparkles } from "lucide-react";
 
 type BoasVindasPageProps = {
@@ -23,6 +23,14 @@ export default async function BoasVindasPage({ searchParams }: BoasVindasPagePro
   const params = searchParams ? await searchParams : undefined;
   const portalValue = typeof params?.portal === "string" ? params.portal : null;
   const portal = getEntryPortal(portalValue);
+  const portalTone: StoryTone =
+    portal?.slug === "participantes"
+      ? "participantes"
+      : portal?.slug === "apoiadores"
+        ? "apoiadores"
+        : portal?.slug === "implementacao" || portal?.slug === "colaboradores"
+          ? "implementacao"
+          : "default";
 
   const availableProfileOptions = getAvailableParticipationProfileOptions(extractRoles(session));
   const portalProfiles = new Set(portal?.profiles ?? []);
@@ -167,7 +175,7 @@ export default async function BoasVindasPage({ searchParams }: BoasVindasPagePro
             <CharacterRoster
               mode="full"
               theme="light"
-              tone={portal?.slug ?? "participantes"}
+              tone={portalTone}
               avatarMood="acolhedor"
               className="mt-5"
             />

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AlertTriangle, Anchor, ArrowRight, Compass, ExternalLink, Sparkles } from "lucide-react";
-import { CharacterRoster } from "@/components/story/CharacterRoster";
+import { CharacterRoster, type StoryTone } from "@/components/story/CharacterRoster";
 import { entryPortals, getEntryPortal, type EntryPortalSlug } from "@/lib/entry-portals";
 import { participationProfileOptions } from "@/lib/participant-profile";
 
@@ -117,6 +117,14 @@ export default async function ParticiparPage({ searchParams }: ParticiparPagePro
   const params = searchParams ? await searchParams : undefined;
   const rawPortal = typeof params?.portal === "string" ? params.portal : null;
   const portal = getEntryPortal(rawPortal);
+  const portalTone: StoryTone =
+    portal?.slug === "participantes"
+      ? "participantes"
+      : portal?.slug === "apoiadores"
+        ? "apoiadores"
+        : portal?.slug === "implementacao" || portal?.slug === "colaboradores"
+          ? "implementacao"
+          : "default";
 
   const orderedOptions = portal
     ? [
@@ -140,7 +148,7 @@ export default async function ParticiparPage({ searchParams }: ParticiparPagePro
               para a porta certa de entrada.
             </p>
 
-            <CharacterRoster mode="full" theme="light" tone={portal?.slug ?? "participantes"} avatarMood="acolhedor" className="mt-6" />
+            <CharacterRoster mode="full" theme="light" tone={portalTone} avatarMood="acolhedor" className="mt-6" />
 
             <div className="mt-6 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-mar-azul/80">
               <span className="inline-flex items-center gap-1 rounded-full border border-mar-areia/40 bg-white/80 px-3 py-1">

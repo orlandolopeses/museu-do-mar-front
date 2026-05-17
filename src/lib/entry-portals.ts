@@ -1,6 +1,39 @@
 import type { ParticipationProfileSlug } from "@/lib/participant-profile";
 
+/**
+ * Portais de entrada usados pela landing e pelo onboarding.
+ * Regra: nao inventar slugs fora desta lista (mantem governanca de URLs e assets).
+ */
 export const entryPortals = {
+  visitantes: {
+    slug: "visitantes",
+    title: "Visitantes",
+    summary: "Descubra o acervo, as historias e o territorio do Perocao. Sem login.",
+    ctaLabel: "Explorar como visitante",
+    profiles: [] as ParticipationProfileSlug[],
+  },
+  participantes: {
+    slug: "participantes",
+    title: "Participantes",
+    summary: "Estudantes, professores e voluntarios em trilhas e missoes no territorio.",
+    ctaLabel: "Entrar para participar",
+    profiles: ["estudante", "professor", "voluntario"] as ParticipationProfileSlug[],
+  },
+  colaboradores: {
+    slug: "colaboradores",
+    title: "Colaboradores",
+    summary: "Bastidores: comunicacao, producao, registro, tecnologia e apoio operacional.",
+    ctaLabel: "Quero colaborar",
+    profiles: ["equipe_comunicacao", "equipe_producao", "bolsista", "voluntario"] as ParticipationProfileSlug[],
+  },
+  apoiadores: {
+    slug: "apoiadores",
+    title: "Apoiadores",
+    summary: "Rede de apoio e parceria para continuidade e impacto social do projeto.",
+    ctaLabel: "Apoiar o projeto",
+    profiles: ["apoiador", "gestor"] as ParticipationProfileSlug[],
+  },
+  // Mantido para rotas internas e operacao; nao aparece como card na landing.
   implementacao: {
     slug: "implementacao",
     title: "Equipe de Implementacao",
@@ -8,22 +41,6 @@ export const entryPortals = {
       "Frente operacional do projeto: comunicacao, producao, bolsistas e coordenacao institucional.",
     ctaLabel: "Entrar como equipe",
     profiles: ["equipe_comunicacao", "equipe_producao", "bolsista", "gestor"] as ParticipationProfileSlug[],
-  },
-  participantes: {
-    slug: "participantes",
-    title: "Participantes",
-    summary:
-      "Jornada de estudantes, professores e voluntarios que atuam nas atividades, trilhas e territorio.",
-    ctaLabel: "Entrar para participar",
-    profiles: ["estudante", "professor", "voluntario"] as ParticipationProfileSlug[],
-  },
-  apoiadores: {
-    slug: "apoiadores",
-    title: "Apoiadores",
-    summary:
-      "Parceiros da sociedade e da academia que acompanham impacto, memoria e fortalecimento institucional.",
-    ctaLabel: "Entrar como apoiador",
-    profiles: ["apoiador", "gestor"] as ParticipationProfileSlug[],
   },
 } as const;
 

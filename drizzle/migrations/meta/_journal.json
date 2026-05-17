@@ -1,0 +1,62 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1772838959899,
+      "tag": "0000_bizarre_ezekiel",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1772847419421,
+      "tag": "0001_illegal_radioactive_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1772895600000,
+      "tag": "0002_spotty_mandrill",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1772910000000,
+      "tag": "0003_eventos_instituicoes",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1772917200000,
+      "tag": "0004_atividades_turma",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1773468000000,
+      "tag": "0005_submissoes_memoria",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1773600000000,
+      "tag": "0006_acompanhamentos_jornada",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1773686400000,
+      "tag": "0007_trilhas_pedagogicas",
+      "breakpoints": true
+    }
+  ]
+}

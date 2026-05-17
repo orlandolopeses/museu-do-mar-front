@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Museu do Mar: Dev 3002",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"env DATABASE_URL=postgresql://museu_user:museu_pass_2026@127.0.0.1:55432/museu_do_mar NEXTAUTH_URL=http://127.0.0.1:3002 /home/orlando/.local/share/fnm/fnm exec --using=22 npx next dev -p 3002"
+			],
+			"isBackground": true,
+			"group": "build"
+		}
+	]
+}

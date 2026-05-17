@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mockup HQ do Mangue - Portal Museu do Mar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Lilita+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ceu: #88d7f7;
+        --oceano: #1277a8;
+        --oceano-profundo: #074268;
+        --mangue: #3b8f52;
+        --lama: #8d6b4a;
+        --areia: #fde6b3;
+        --sol: #ffd257;
+        --coral: #ff7e55;
+        --espuma: #e9f8ff;
+        --noite: #0b2740;
+        --papel: #fff8e4;
+        --texto: #1a2d40;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Baloo 2", cursive;
+        color: var(--texto);
+        background:
+          radial-gradient(circle at 8% 10%, rgba(255, 210, 87, 0.4), transparent 30%),
+          radial-gradient(circle at 90% 18%, rgba(255, 126, 85, 0.22), transparent 28%),
+          linear-gradient(180deg, #79cdef 0%, #4eb3dc 28%, #2a91bf 53%, #186f9d 72%, #0b4e75 100%);
+        min-height: 100vh;
+      }
+
+      .shell {
+        width: min(1160px, 92vw);
+        margin: 0 auto;
+        padding: 24px 0 42px;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border: 3px solid rgba(255, 248, 228, 0.8);
+        border-radius: 34px;
+        background: linear-gradient(180deg, rgba(11, 39, 64, 0.92), rgba(15, 70, 106, 0.88));
+        color: white;
+        padding: 30px 24px 28px;
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.32);
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border-radius: 999px;
+        padding: 8px 16px;
+        background: rgba(255, 210, 87, 0.2);
+        border: 2px solid rgba(255, 210, 87, 0.45);
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        color: #fff4cf;
+      }
+
+      .headline {
+        font-family: "Lilita One", cursive;
+        margin: 14px 0 8px;
+        line-height: 1.04;
+        letter-spacing: 0.02em;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        text-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
+      }
+
+      .subhead {
+        margin: 0;
+        max-width: 82ch;
+        color: #def2ff;
+        line-height: 1.28;
+        font-size: 1.13rem;
+      }
+
+      .opening-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 16px;
+        margin-top: 20px;
+      }
+
+      .comic-scene {
+        border-radius: 24px;
+        border: 2px solid rgba(255, 248, 228, 0.42);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)),
+          repeating-linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(255, 255, 255, 0.04) 10px,
+            rgba(255, 255, 255, 0.02) 10px,
+            rgba(255, 255, 255, 0.02) 20px
+          );
+        padding: 16px;
+      }
+
+      .comic-scene h2 {
+        margin: 0;
+        font-family: "Lilita One", cursive;
+        font-size: 1.55rem;
+        color: #ffe9aa;
+        letter-spacing: 0.02em;
+      }
+
+      .panels {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .panel {
+        position: relative;
+        border-radius: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        background: rgba(8, 37, 60, 0.6);
+        min-height: 162px;
+        padding: 12px;
+      }
+
+      .panel h3 {
+        margin: 0 0 6px;
+        font-size: 1.03rem;
+        color: #ffe6a3;
+      }
+
+      .panel p {
+        margin: 0;
+        font-size: 0.98rem;
+        line-height: 1.22;
+        color: #dcf2ff;
+      }
+
+      .bubble {
+        margin-top: 8px;
+        display: inline-block;
+        background: #fff7df;
+        color: #23415e;
+        border-radius: 14px;
+        border: 2px solid #f7d98d;
+        padding: 7px 10px;
+        font-size: 0.86rem;
+        line-height: 1.18;
+      }
+
+      .cast {
+        border-radius: 24px;
+        background: linear-gradient(180deg, rgba(59, 143, 82, 0.28), rgba(59, 143, 82, 0.1));
+        border: 2px solid rgba(171, 240, 182, 0.42);
+        padding: 14px;
+      }
+
+      .cast h3 {
+        margin: 0;
+        font-family: "Lilita One", cursive;
+        letter-spacing: 0.02em;
+        font-size: 1.35rem;
+        color: #eeffd5;
+      }
+
+      .cast-grid {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .kid-card {
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        padding: 10px;
+      }
+
+      .kid-card h4 {
+        margin: 0;
+        color: #f7ffdf;
+        font-size: 1.03rem;
+      }
+
+      .kid-card p {
+        margin: 4px 0 0;
+        color: #e6f8ff;
+        line-height: 1.2;
+      }
+
+      .purpose {
+        margin-top: 16px;
+        border-radius: 18px;
+        border: 2px dashed rgba(255, 248, 228, 0.45);
+        background: rgba(255, 248, 228, 0.1);
+        padding: 12px;
+      }
+
+      .purpose p {
+        margin: 0;
+        color: #f6fbff;
+        line-height: 1.26;
+      }
+
+      .map {
+        margin-top: 14px;
+        border-radius: 20px;
+        background: linear-gradient(180deg, rgba(253, 230, 179, 0.2), rgba(253, 230, 179, 0.07));
+        border: 2px dashed rgba(253, 230, 179, 0.6);
+        min-height: 170px;
+        overflow: hidden;
+      }
+
+      .map svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .portal-title {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-family: "Lilita One", cursive;
+        font-size: clamp(1.6rem, 2vw, 2.1rem);
+        color: #fff2c1;
+        letter-spacing: 0.02em;
+      }
+
+      .portais {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .portal {
+        border-radius: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.45);
+        padding: 14px;
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 220ms ease;
+      }
+
+      .portal:hover {
+        transform: translateY(-3px);
+      }
+
+      .portal h4 {
+        margin: 0;
+        font-family: "Lilita One", cursive;
+        font-size: 1.35rem;
+        letter-spacing: 0.01em;
+      }
+
+      .portal p {
+        margin: 7px 0;
+        line-height: 1.2;
+      }
+
+      .portal ul {
+        margin: 0;
+        padding-left: 18px;
+        line-height: 1.18;
+      }
+
+      .portal button {
+        margin-top: 12px;
+        border: 2px solid rgba(0, 0, 0, 0.12);
+        border-radius: 999px;
+        padding: 10px 12px;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 800;
+        cursor: default;
+      }
+
+      .portal-1 {
+        background: linear-gradient(160deg, #fff4cf, #ffe29d);
+        color: #4b3416;
+      }
+
+      .portal-1 button {
+        background: #f6b931;
+        color: #402b10;
+      }
+
+      .portal-2 {
+        background: linear-gradient(160deg, #e4ffe6, #c4f3c7);
+        color: #1d4528;
+      }
+
+      .portal-2 button {
+        background: #34a965;
+        color: white;
+      }
+
+      .portal-3 {
+        background: linear-gradient(160deg, #ffe5dc, #ffc5b4);
+        color: #4e2619;
+      }
+
+      .portal-3 button {
+        background: #df6a4d;
+        color: white;
+      }
+
+      .closing {
+        margin-top: 16px;
+        border-radius: 18px;
+        padding: 14px;
+        border: 2px solid rgba(255, 248, 228, 0.35);
+        background: rgba(10, 40, 65, 0.58);
+        color: #dff3ff;
+      }
+
+      .closing strong {
+        color: #ffe09a;
+      }
+
+      .notes {
+        margin-top: 14px;
+        border-radius: 16px;
+        padding: 10px 12px;
+        background: rgba(7, 30, 48, 0.78);
+        border: 1px solid rgba(233, 248, 255, 0.3);
+        color: #d9f1ff;
+        font-size: 0.95rem;
+      }
+
+      .notes strong {
+        color: #ffe09a;
+      }
+
+      @media (max-width: 980px) {
+        .opening-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .panels {
+          grid-template-columns: 1fr;
+        }
+
+        .cast-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .portais {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <span class="kicker">Mockup visual - HQ autoral do mangue para sensibilizacao e engajamento</span>
+
+        <h1 class="headline">Pedro Cao e a Turma do Mangue<br />te convidam para a Caca da Memoria</h1>
+
+        <p class="subhead">
+          Esta nao e uma pagina academica. E um chamado popular: criancas, familias e vizinhanca entram numa
+          aventura coletiva para proteger historias, valorizar o territorio e transformar memoria em futuro.
+        </p>
+
+        <div class="opening-grid">
+          <article class="comic-scene">
+            <h2>A historia comeca em 3 cenas</h2>
+            <div class="panels">
+              <div class="panel">
+                <h3>Cena 1: Chamado da mare</h3>
+                <p>Pedro Cao encontra a turma no cais e anuncia a gincana da memoria.</p>
+                <span class="bubble">"Bora achar as pistas da nossa historia!"</span>
+              </div>
+              <div class="panel">
+                <h3>Cena 2: Pistas no territorio</h3>
+                <p>As familias entram no mapa vivo: escola, praia, mangue e ruas da comunidade.</p>
+                <span class="bubble">"Cada lugar guarda uma lembranca!"</span>
+              </div>
+              <div class="panel">
+                <h3>Cena 3: Tesouro coletivo</h3>
+                <p>O premio e descobrir que memoria e pertencimento tambem constroem futuro.</p>
+                <span class="bubble">"Nosso tesouro e nossa identidade!"</span>
+              </div>
+            </div>
+
+            <div class="map" aria-label="Mapa ilustrado conceitual">
+              <svg viewBox="0 0 700 240" role="img">
+                <defs>
+                  <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#8fd4f6" stop-opacity="0.9" />
+                    <stop offset="100%" stop-color="#267baa" stop-opacity="0.85" />
+                  </linearGradient>
+                </defs>
+                <rect x="0" y="0" width="700" height="240" fill="url(#sea)" opacity="0.2" />
+                <path d="M40 185 C140 110, 230 120, 330 160 C430 200, 520 195, 650 135" fill="none" stroke="#ffd257" stroke-width="8" stroke-linecap="round" />
+                <path d="M58 196 C150 130, 236 136, 332 173 C420 207, 520 208, 638 150" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="3" stroke-dasharray="10 8" />
+
+                <circle cx="88" cy="188" r="22" fill="#ff7e55" />
+                <circle cx="356" cy="170" r="22" fill="#3b8f52" />
+                <circle cx="646" cy="137" r="22" fill="#ffd257" />
+
+                <text x="50" y="192" font-size="16" fill="white" font-family="Baloo 2">Entrada</text>
+                <text x="303" y="175" font-size="16" fill="white" font-family="Baloo 2">Pista</text>
+                <text x="606" y="142" font-size="16" fill="#203447" font-family="Baloo 2">Tesouro</text>
+
+                <path d="M165 76 l20 16 l-22 14 z" fill="#fff" opacity="0.8" />
+                <path d="M495 86 l20 16 l-22 14 z" fill="#fff" opacity="0.8" />
+              </svg>
+            </div>
+          </article>
+
+          <aside class="cast">
+            <h3>Quem recebe o visitante</h3>
+            <div class="cast-grid">
+              <article class="kid-card">
+                <h4>Pedro Cao</h4>
+                <p>Guia da aventura. Conecta humor, coragem e cuidado com o territorio.</p>
+              </article>
+              <article class="kid-card">
+                <h4>Bia das Conchas</h4>
+                <p>Descobre pistas escondidas e ensina que cada objeto tem historia.</p>
+              </article>
+              <article class="kid-card">
+                <h4>Ravi do Farol</h4>
+                <p>Marca as trilhas da gincana e chama as familias para jogar junto.</p>
+              </article>
+              <article class="kid-card">
+                <h4>Luna da Mare</h4>
+                <p>Transforma memoria em desenho e inspira criancas e adultos.</p>
+              </article>
+            </div>
+
+            <div class="purpose">
+              <p>
+                Linguagem: divertida, afetiva e popular. A pagina deve parecer uma "porta da aventura",
+                nao um formulario institucional.
+              </p>
+            </div>
+          </aside>
+        </div>
+
+        <h2 class="portal-title">Escolha o seu percurso na gincana</h2>
+
+        <section class="portais" aria-label="Tres opcoes de percurso">
+          <article class="portal portal-1">
+            <div>
+              <h4>Percurso da Implementacao</h4>
+              <p>Para quem move o projeto todos os dias.</p>
+              <ul>
+                <li>Bastidores da producao</li>
+                <li>Comunicacao e mobilizacao</li>
+                <li>Organizacao das frentes locais</li>
+              </ul>
+            </div>
+            <button>Eu faco parte da equipe</button>
+          </article>
+
+          <article class="portal portal-2">
+            <div>
+              <h4>Percurso dos Participantes</h4>
+              <p>Para estudantes, professores e voluntarios.</p>
+              <ul>
+                <li>Desafios da caca ao tesouro</li>
+                <li>Missoes no mangue e na escola</li>
+                <li>Aprender brincando com memoria</li>
+              </ul>
+            </div>
+            <button>Quero entrar na aventura</button>
+          </article>
+
+          <article class="portal portal-3">
+            <div>
+              <h4>Percurso dos Apoiadores</h4>
+              <p>Para familias, parceiros e apoiadores da causa.</p>
+              <ul>
+                <li>Impacto social na comunidade</li>
+                <li>Fortalecimento da memoria local</li>
+                <li>Rede de apoio para continuidade</li>
+              </ul>
+            </div>
+            <button>Quero apoiar essa jornada</button>
+          </article>
+        </section>
+
+        <div class="closing">
+          <strong>Mensagem final da capa:</strong>
+          "Quando uma comunidade brinca junto de lembrar, ela aprende junto a cuidar do que e seu".
+        </div>
+
+        <div class="notes">
+          <strong>Nota de mockup:</strong>
+          direcao visual em estilo HQ autoral comunitaria. Serve para aprovar narrativa, personagens e tom
+          de sensibilizacao antes da implementacao no Next.js.
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+{
+  "project": "Ponto de Memória Museu do Mar",
+  "deliverable": "Landing page implementation package",
+  "version": "2026-05-16",
+  "source_mockup": {
+    "file": "ponto_de_memória_museu_do_mar.png",
+    "size_px": [
+      1672,
+      941
+    ],
+    "notes": "Mockup final com background baseado na foto real do Cais de Perocão (referência incluída)."
+  },
+  "assets": [
+    {
+      "id": "landing_mockup_final",
+      "source_file": "ponto_de_memória_museu_do_mar.png",
+      "type": "image/png",
+      "intended_use": "Referência visual final (pixel-perfect).",
+      "dest_suggested_path": "clients/museu-do-mar/site/docs/mockups/landing-2026-05-16.png"
+    },
+    {
+      "id": "hero_section",
+      "source_file": "museu_do_mar_hero_section.png",
+      "type": "image/png",
+      "intended_use": "Recorte da dobra inicial (header+hero) para referência e QA.",
+      "dest_suggested_path": "clients/museu-do-mar/site/docs/mockups/hero-section.png"
+    },
+    {
+      "id": "hero_art",
+      "source_file": "museu_do_mar_hero_art.png",
+      "type": "image/png",
+      "intended_use": "Arte do hero (Turma do Mangue + cenário). Pode ser usada como background/ilustração principal.",
+      "dest_suggested_path": "clients/museu-do-mar/site/public/story/applications/hero-turma-mangue-cais-perocao.png"
+    },
+    {
+      "id": "cais_reference_photo",
+      "source_file": "d6f941ab-2610-4348-adf0-68670f3a377b.png",
+      "type": "image/png",
+      "intended_use": "Referência fotográfica do Cais de Perocão para consistência do cenário (não publicar no site, salvo decisão editorial).",
+      "dest_suggested_path": "clients/museu-do-mar/site/docs/references/cais-perocao-reference.png"
+    },
+    {
+      "id": "comic_panorama_team",
+      "source_file": "sunny_seaside_adventure_with_friends.png",
+      "type": "image/png",
+      "intended_use": "Panorama da Turma do Mangue em estilo quadrinhos; pode ser usado em /turma-do-mangue, banners e cards.",
+      "dest_suggested_path": "clients/museu-do-mar/site/public/story/applications/turma-do-mangue-panorama.png"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "purpose": "Landing pública (primeiro acesso)",
+      "sections": [
+        "HeaderNav",
+        "Hero",
+        "ComoFunciona",
+        "PortasDeExperiencia",
+        "TurmaDoMangueStrip",
+        "AgendaEDestaques",
+        "Footer"
+      ]
+    }
+  ],
+  "copy": {
+    "hero": {
+      "headline": "Bem-vindos ao Ponto de Memória Museu do Mar",
+      "subhead": "Nosso museu é feito de memórias, histórias e afetos do mar e do mangue. Aqui, a comunidade preserva, compartilha e celebra a cultura que nos conecta.",
+      "primary_cta": {
+        "label": "Quero participar",
+        "href": "/participar"
+      },
+      "secondary_cta": {
+        "label": "Explorar o acervo",
+        "href": "/acervo"
+      }
+    },
+    "como_funciona": {
+      "title": "Como funciona",
+      "steps": [
+        {
+          "label": "Explore",
+          "text": "Navegue pelo acervo e descubra histórias, fotos e objetos do mar e do mangue."
+        },
+        {
+          "label": "Participe",
+          "text": "Compartilhe suas memórias, fotos e saberes com a comunidade. Sua história faz parte do museu!"
+        },
+        {
+          "label": "Transforme",
+          "text": "Juntos, preservamos nossa cultura e inspiramos as próximas gerações."
+        }
+      ]
+    },
+    "portas": {
+      "title": "Quatro portas de experiência",
+      "cards": [
+        {
+          "title": "Visitantes",
+          "text": "Descubra o acervo e as histórias do nosso território.",
+          "href": "/visitantes"
+        },
+        {
+          "title": "Participantes",
+          "text": "Compartilhe memórias, fotos, objetos e saberes com a comunidade.",
+          "href": "/participar?portal=participantes"
+        },
+        {
+          "title": "Colaboradores",
+          "text": "Pesquise, produza e ajude a construir conteúdos e projetos do museu.",
+          "href": "/colaboradores"
+        },
+        {
+          "title": "Apoiadores",
+          "text": "Apoie iniciativas que fortalecem nossa memória e cultura do mar.",
+          "href": "/participar?portal=apoiadores"
+        }
+      ]
+    },
+    "turma_strip": {
+      "title": "Turma do Mangue",
+      "text": "Conheça a turma que vive grandes aventuras e aprende com o mar, o mangue e as pessoas da comunidade!",
+      "cta": {
+        "label": "Conhecer a turma",
+        "href": "/turma-do-mangue"
+      }
+    }
+  },
+  "design_system": {
+    "palette": {
+      "ink": "#0C2332",
+      "deepSea": "#326584",
+      "skyWash": "#B1CCDF",
+      "mist": "#EEEDEB",
+      "sand": "#DAB498",
+      "mangrove": "#6F766C"
+    },
+    "typography": {
+      "headings": "Sans rounded / display (ex.: Poppins ou Montserrat)",
+      "body": "Serif legível / editorial (ex.: Lora ou Source Serif 4)"
+    },
+    "style_notes": [
+      "A página deve parecer uma 'abertura de livro infantil' (spread), mas operar como landing moderna.",
+      "Estilo quadrinhos infantis brasileiro: contorno limpo, cores chapadas/sem muito ruído, ícones simples.",
+      "Garantir contraste do texto no hero usando overlay (gradiente) sobre a imagem."
+    ]
+  },
+  "implementation_notes": {
+    "framework": "Next.js (App Router) + Tailwind (assumido pelo projeto)",
+    "hero_background": "Preferir <Image fill /> (next/image) com object-cover e overlay por pseudo-elemento ou div absoluta.",
+    "responsive_breakpoints": {
+      "desktop": "hero em 2 colunas (texto à esquerda, arte à direita)",
+      "mobile": "empilhar; texto primeiro, arte abaixo; reduzir altura do hero; CTAs sempre visíveis"
+    },
+    "qa_checklist": [
+      "Sem 404 para assets em /story/...",
+      "Hero legível em 320px de largura (overlay suficiente)",
+      "As 4 portas clicáveis e com hierarquia clara",
+      "Lighthouse: imagens otimizadas (next/image) e tamanhos definidos"
+    ]
+  }
+}

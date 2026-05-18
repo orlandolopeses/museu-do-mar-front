@@ -1,11 +1,11 @@
 import { db } from "@/lib/db";
 import { acervo, eventos } from "@/lib/schema";
 import { and, desc, eq, gte } from "drizzle-orm";
+import Link from "next/link";
 import { LandingSection } from "@/components/landing/LandingSection";
 import { MobileHero } from "@/components/landing/MobileHero";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { EntryPaths } from "@/components/landing/EntryPaths";
-import { TurmaDoMangueStrip } from "@/components/landing/TurmaDoMangueStrip";
 import { AgendaHighlights } from "@/components/landing/AgendaHighlights";
 
 async function getUpcomingEventos() {
@@ -45,35 +45,26 @@ export default async function HomePage() {
       <LandingSection
         id="como-funciona"
         eyebrow="Como funciona"
-        title="Um prospecto lúdico em três passos"
-        subtitle="A home funciona como uma página de livro infantil: acolhe, explica rápido e dispara o desejo de participar."
+        title="Uma jornada comunitaria em tres passos"
+        subtitle="A home apresenta o convite, orienta o primeiro acesso e conduz para acao no territorio."
       >
         <HowItWorks />
       </LandingSection>
 
       <LandingSection
         id="caminhos"
-        eyebrow="Caminhos"
-        title="Escolha seu caminho de experiência"
-        subtitle="Visitantes, participantes, colaboradores e apoiadores têm portas claras de entrada."
+        eyebrow="Portais"
+        title="Quatro caminhos de entrada"
+        subtitle="Visitantes, participantes, colaboradores e apoiadores acessam o projeto com jornadas claras desde a primeira visita."
       >
         <EntryPaths />
       </LandingSection>
 
       <LandingSection
-        id="turma-do-mangue"
-        eyebrow="Personagens-guia"
-        title="Turma do Mangue"
-        subtitle="Os personagens apresentam o projeto em linguagem de HQ infantil e ajudam a conduzir a jornada."
-      >
-        <TurmaDoMangueStrip />
-      </LandingSection>
-
-      <LandingSection
         id="agenda"
         eyebrow="Agenda & acervo"
-        title="Destaques para primeira visita"
-        subtitle="Um recorte rápido de eventos e itens do acervo para orientar quem chega agora."
+        title="Destaques para a primeira visita"
+        subtitle="Eventos e acervo em destaque para transformar curiosidade em participacao concreta."
       >
         <AgendaHighlights upcomingEventos={upcomingEventos} recentAcervo={recentAcervo} />
       </LandingSection>
@@ -86,12 +77,12 @@ export default async function HomePage() {
               Se você chegou pela primeira vez, escolha um caminho e comece pela experiência que faz sentido para você.
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-              <a href="/participar" className="btn-primary w-full justify-center bg-mar-areia text-mar-escuro hover:bg-mar-areia/90 sm:w-auto">
+              <Link href="/participar" className="btn-primary w-full justify-center bg-mar-areia text-mar-escuro hover:bg-mar-areia/90 sm:w-auto">
                 Quero participar
-              </a>
-              <a href="/acervo" className="btn-secondary w-full justify-center sm:w-auto">
+              </Link>
+              <Link href="/acervo" className="btn-secondary w-full justify-center sm:w-auto">
                 Explorar o acervo
-              </a>
+              </Link>
             </div>
           </div>
         </div>

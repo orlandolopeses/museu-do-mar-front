@@ -4,16 +4,25 @@ import path from "node:path";
 const projectRoot = process.cwd();
 const publicRoot = path.join(projectRoot, "public");
 
+// Smoke test do storytelling/landing: lista de assets que nao podem dar 404.
 const requiredPaths = [
+  // Landing / Hero
+  "/story/applications/cais-perocao-hero-bg.png",
+  "/story/applications/hero-turma-mangue-clean.png",
+
+  // Cenas canonicas
   "/story/applications/cena-chamado-mare.png",
   "/story/applications/cena-trilhas-territorio.png",
   "/story/applications/cena-tesouro-coletivo.png",
-  "/story/applications/hero-turma-mangue-clean.png",
+
+  // Avatares base
   "/story/characters/pedro-cao.png",
   "/story/characters/bia-das-conchas.png",
   "/story/characters/ravi-do-farol.png",
   "/story/characters/luna-da-mare.png",
   "/story/characters/mari-siqueira.png",
+
+  // Variantes (moods)
   "/story/characters/variants/pedro-cao-travesso.png",
   "/story/characters/variants/pedro-cao-acolhedor.png",
   "/story/characters/variants/bia-das-conchas-travesso.png",

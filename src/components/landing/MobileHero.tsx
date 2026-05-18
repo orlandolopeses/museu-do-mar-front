@@ -17,18 +17,21 @@ const heroPortals = [
     description: "Desafios da caca da memoria, missoes no mangue e na escola.",
     href: "/participar?portal=participantes",
     Icon: Users,
+    active: false,
   },
   {
     title: "Familias, Parceiros e Apoiadores",
     description: "Impacto social, rede de apoio e fortalecimento da memoria local.",
     href: "/participar?portal=apoiadores",
     Icon: HeartHandshake,
+    active: false,
   },
   {
     title: "Visitantes e Comunidade",
     description: "Entrada aberta para explorar historias, acervo e agenda viva.",
     href: "/visitantes",
     Icon: Compass,
+    active: false,
   },
 ] as const;
 

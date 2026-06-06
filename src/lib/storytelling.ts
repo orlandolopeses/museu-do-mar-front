@@ -45,6 +45,12 @@ export const storyPortalNarrative: Record<
   EntryPortalSlug,
   { lead: string; bullets: readonly [string, string, string]; voice: string; host: string }
 > = {
+  visitantes: {
+    lead: "Para quem quer conhecer o Museu do Mar pela primeira vez.",
+    bullets: ["Exploracao livre do acervo", "Agenda cultural aberta", "Descoberta do territorio e da memoria"],
+    voice: "Chega mais, a casa e sua. A aventura comeca na curiosidade.",
+    host: "Luna da Mare",
+  },
   implementacao: {
     lead: "Para quem move o projeto todos os dias.",
     bullets: ["Bastidores da producao", "Comunicacao e mobilizacao", "Organizacao das frentes locais"],
@@ -56,6 +62,12 @@ export const storyPortalNarrative: Record<
     bullets: ["Desafios da caca ao tesouro", "Missoes no mangue e na escola", "Aprender brincando com memoria"],
     voice: "Partiu gincana! Cada pista conta nossa historia.",
     host: "Bia das Conchas",
+  },
+  colaboradores: {
+    lead: "Para quem quer fortalecer os bastidores da campanha.",
+    bullets: ["Apoio em comunicacao e mobilizacao", "Producao e registro das acoes", "Organizacao das frentes de trabalho"],
+    voice: "Com colaboracao bem organizada, a memoria chega mais longe.",
+    host: "Ravi do Farol",
   },
   apoiadores: {
     lead: "Para familias, parceiros e apoiadores da causa.",

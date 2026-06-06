@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { LoginForm } from "./LoginForm";
 import { Anchor } from "lucide-react";
-import { getEntryPortal } from "@/lib/entry-portals";
+import { getEntryPortal, type EntryPortalSlug } from "@/lib/entry-portals";
 import { CharacterRoster } from "@/components/story/CharacterRoster";
 
 export const metadata: Metadata = { title: "Entrar — Museu do Mar" };
@@ -16,22 +16,36 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
   const rawPortal = typeof params?.portal === "string" ? params.portal : null;
   const portal = getEntryPortal(rawPortal);
 
-  const portalNarrative = portal
-    ? {
-        implementacao: {
-          route: "Bastidores em movimento",
-          quote: "Toda gincana precisa de gente que faz acontecer.",
-        },
-        participantes: {
-          route: "Trilhas da descoberta",
-          quote: "Aqui cada pista vira aprendizado coletivo.",
-        },
-        apoiadores: {
-          route: "Rede que fortalece",
-          quote: "A memoria cresce quando a comunidade apoia junta.",
-        },
-      }[portal.slug]
-    : null;
+  const portalNarratives: Record<EntryPortalSlug, { route: string; quote: string; tone: "default" | "implementacao" | "participantes" | "apoiadores" }> = {
+    visitantes: {
+      route: "Primeira visita guiada",
+      quote: "Toda grande aventura comeca com um primeiro passo.",
+      tone: "default",
+    },
+    participantes: {
+      route: "Trilhas da descoberta",
+      quote: "Aqui cada pista vira aprendizado coletivo.",
+      tone: "participantes",
+    },
+    colaboradores: {
+      route: "Frente de colaboracao",
+      quote: "Nos bastidores, cada pessoa vira parte da mare de impacto.",
+      tone: "implementacao",
+    },
+    apoiadores: {
+      route: "Rede que fortalece",
+      quote: "A memoria cresce quando a comunidade apoia junta.",
+      tone: "apoiadores",
+    },
+    implementacao: {
+      route: "Bastidores em movimento",
+      quote: "Toda gincana precisa de gente que faz acontecer.",
+      tone: "implementacao",
+    },
+  };
+
+  const portalNarrative = portal ? portalNarratives[portal.slug] : null;
+  const rosterTone = portalNarrative?.tone ?? "default";
 
   return (
     <div className="min-h-screen bg-mar-escuro p-4 md:p-8">
@@ -52,7 +66,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
             memoria em pertencimento e acao comunitaria.
           </p>
 
-          <CharacterRoster mode="compact" tone={portal?.slug ?? "default"} avatarMood="acolhedor" className="mt-5" />
+          <CharacterRoster mode="compact" tone={rosterTone} avatarMood="acolhedor" className="mt-5" />
 
           <div data-portal={portal?.slug ?? "participantes"} className="login-route-card mt-6 rounded-2xl border border-white/20 bg-white/10 p-4">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-mar-areia">Percurso selecionado</p>
